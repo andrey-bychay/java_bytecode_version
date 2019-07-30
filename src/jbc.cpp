@@ -31,7 +31,7 @@ void fixByteOrderToNative(T & value) {
 struct JavaClassHeader {
   unsigned int magic;   // 4 bytes
   unsigned short minor; // 2 bytes
-  unsigned short major;  // 2 bytes
+  unsigned short major; // 2 bytes
 };
 
 void printJdkVersion(JavaClassHeader & header) {
@@ -56,7 +56,6 @@ void printJavaClassHeader(const std::string & fileName) {
         return;
     }
 
-    //std::vector<char> header(4 + 2 + 2);
     JavaClassHeader header;
     if (!file.read(reinterpret_cast<char *>(&header), sizeof(header))) {
         cerr << "failed to read class header" << endl;
